@@ -14,6 +14,7 @@
 ![QLoRA](https://img.shields.io/badge/QLoRA-4--bit%20NF4-6E56CF?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-MIT-3DA639?style=for-the-badge)
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/alimkacar/stem-tr/blob/main/notebooks/stem_tr_colab.ipynb)
 ![Dataset](https://img.shields.io/badge/veri%20seti-1.000%20örnek-informational?style=flat-square)
 ![Base](https://img.shields.io/badge/temel%20model-Turkish--Llama--8B-blue?style=flat-square)
 ![Reduction](https://img.shields.io/badge/eğitilebilir%20parametre-%E2%86%93%2099.5%25-success?style=flat-square)
