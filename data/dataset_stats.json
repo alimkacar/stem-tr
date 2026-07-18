@@ -1,5 +1,5 @@
 {
-  "dataset": "eding-stem-tr-instruct-1k",
+  "dataset": "stem-tr-instruct-1k",
   "total": 1000,
   "seed_count": 139,
   "generated_count": 861,

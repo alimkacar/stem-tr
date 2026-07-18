@@ -2122,7 +2122,7 @@ def main():
     # final 1000 = seeds + kept
     final=[{k:v for k,v in s.items() if k in ("id","category","difficulty","instruction","input","output","source")} for s in seeds]
     final+=[{k:c[k] for k in ("id","category","difficulty","instruction","input","output","source")} for c in kept]
-    dump("data/eding-stem-tr-instruct-1k.jsonl",final)
+    dump("data/stem-tr-instruct-1k.jsonl",final)
 
     # 7) Stratified split (kategoriye göre) -> test 100, val 50, train 850
     by_cat=defaultdict(list)
@@ -2156,7 +2156,7 @@ def main():
     def dist(rows,key):
         return dict(Counter(r[key] for r in rows))
     stats={
-        "dataset":"eding-stem-tr-instruct-1k",
+        "dataset":"stem-tr-instruct-1k",
         "total":len(final),
         "seed_count":len(seeds),
         "generated_count":len(kept),

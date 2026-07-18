@@ -15,7 +15,7 @@ tags:
 - text-generation
 pipeline_tag: text-generation
 datasets:
-- sehinsahfanboy/eding-stem-tr-instruct-1k
+- sehinsahfanboy/stem-tr-instruct-1k
 metrics:
 - bleu
 - rouge
@@ -27,8 +27,8 @@ model-index:
       type: text-generation
       name: Turkish STEM Instruction Following
     dataset:
-      name: eding-stem-tr-instruct-1k (test split)
-      type: sehinsahfanboy/eding-stem-tr-instruct-1k
+      name: stem-tr-instruct-1k (test split)
+      type: sehinsahfanboy/stem-tr-instruct-1k
     metrics:
     - type: bleu
       value: 46.94
@@ -56,7 +56,7 @@ model-index:
 
 ---
 
-A **LoRA adapter** fine-tuned with **QLoRA** on top of [`ytu-ce-cosmos/Turkish-Llama-8b-Instruct-v0.1`](https://huggingface.co/ytu-ce-cosmos/Turkish-Llama-8b-Instruct-v0.1), specialised for **K–12 STEM and coding education in Turkish** (Arduino, Scratch, mBlock, robotics, Python, electronics, algorithms). Trained on the [`eding-stem-tr-instruct-1k`](https://huggingface.co/datasets/sehinsahfanboy/eding-stem-tr-instruct-1k) dataset.
+A **LoRA adapter** fine-tuned with **QLoRA** on top of [`ytu-ce-cosmos/Turkish-Llama-8b-Instruct-v0.1`](https://huggingface.co/ytu-ce-cosmos/Turkish-Llama-8b-Instruct-v0.1), specialised for **K–12 STEM and coding education in Turkish** (Arduino, Scratch, mBlock, robotics, Python, electronics, algorithms). Trained on the [`stem-tr-instruct-1k`](https://huggingface.co/datasets/sehinsahfanboy/stem-tr-instruct-1k) dataset.
 
 ## 📊 Evaluation
 
@@ -128,15 +128,15 @@ print(tok.decode(out[0][ids.shape[-1]:], skip_special_tokens=True))
 ## 📚 Citation
 
 ```bibtex
-@misc{eding-stem-tr-2026,
-  title  = {Eding STEM TR: Turkish K-12 STEM Instruction Dataset & QLoRA Fine-tuning},
+@misc{stem-tr-2026,
+  title  = {STEM TR: Turkish K-12 STEM Instruction Dataset & QLoRA Fine-tuning},
   author = {Alim Kacar},
   year   = {2026},
-  note   = {Eding Internship project}
+  note   = {Personal project}
 }
 ```
 
 Methods: **QLoRA** (Dettmers et al., 2023) · **LoRA** (Hu et al., 2021) · **NEFTune** (Jain et al., 2023).
-Dataset: [`sehinsahfanboy/eding-stem-tr-instruct-1k`](https://huggingface.co/datasets/sehinsahfanboy/eding-stem-tr-instruct-1k) · Base: `ytu-ce-cosmos/Turkish-Llama-8b-Instruct-v0.1` (Llama-3 license).
+Dataset: [`sehinsahfanboy/stem-tr-instruct-1k`](https://huggingface.co/datasets/sehinsahfanboy/stem-tr-instruct-1k) · Base: `ytu-ce-cosmos/Turkish-Llama-8b-Instruct-v0.1` (Llama-3 license).
 
-<div align="center"><sub>Alim Kacar · Eding Internship 2026</sub></div>
+<div align="center"><sub>Alim Kacar · 2026</sub></div>

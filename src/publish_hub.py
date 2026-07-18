@@ -50,7 +50,7 @@ size_categories:
   - n<1K
 ---
 
-# Eding STEM TR Instruct 1K
+# STEM TR Instruct 1K
 
 Türkçe K-12 STEM ve kodlama eğitimi için instruction-tuning veri seti.
 
@@ -116,8 +116,8 @@ Apache 2.0
 ## Atıf
 
 ```bibtex
-@misc{{eding-stem-tr-2026,
-  title={{Eding STEM TR Instruct 1K: Türkçe K-12 STEM Eğitimi Veri Seti}},
+@misc{{stem-tr-2026,
+  title={{STEM TR Instruct 1K: Türkçe K-12 STEM Eğitimi Veri Seti}},
   author={{Kacar, Alim}},
   year={{2026}},
   publisher={{HuggingFace}},

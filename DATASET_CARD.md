@@ -15,7 +15,7 @@ tags:
 - arduino
 - scratch
 - robotics
-pretty_name: Eding STEM TR Instruct 1k
+pretty_name: STEM TR Instruct 1k
 size_categories:
 - 1K<n<10K
 configs:
@@ -31,7 +31,7 @@ configs:
 
 <div align="center">
 
-# 🗂️ eding-stem-tr-instruct-1k
+# 🗂️ stem-tr-instruct-1k
 
 ### A **Turkish K–12 STEM & coding** instruction-tuning dataset
 
@@ -124,7 +124,7 @@ flowchart LR
 
 ```python
 from datasets import load_dataset
-ds = load_dataset("sehinsahfanboy/eding-stem-tr-instruct-1k")
+ds = load_dataset("sehinsahfanboy/stem-tr-instruct-1k")
 print(ds["train"][0])
 ```
 
@@ -137,8 +137,8 @@ print(ds["train"][0])
 ## 📚 Citation
 
 ```bibtex
-@misc{eding-stem-tr-2026,
-  title  = {eding-stem-tr-instruct-1k: A Turkish K-12 STEM Instruction Dataset},
+@misc{stem-tr-2026,
+  title  = {stem-tr-instruct-1k: A Turkish K-12 STEM Instruction Dataset},
   author = {Alim Kacar},
   year   = {2026}
 }
@@ -146,4 +146,4 @@ print(ds["train"][0])
 
 License **CC BY 4.0** · Method: Self-Instruct (Wang et al., 2023).
 
-<div align="center"><sub>Alim Kacar · Eding Internship 2026</sub></div>
+<div align="center"><sub>Alim Kacar · 2026</sub></div>

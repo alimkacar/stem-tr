@@ -1,9 +1,9 @@
 # ============================================================
-# Eding STEM TR - Proje Konfigürasyonu
+# STEM TR - Proje Konfigürasyonu
 # ============================================================
 
 project:
-  name: "eding-stem-tr-instruct-1k"
+  name: "stem-tr-instruct-1k"
   version: "1.0.0"
   author: "Alim Kacar"
   description: "Türkçe K-12 STEM/Kodlama Instruction-Tuning Veri Seti & QLoRA Fine-tuning"
@@ -107,6 +107,6 @@ evaluation:
 
 # ---------- HuggingFace Hub ----------
 hub:
-  dataset_repo: "sehinsahfanboy/eding-stem-tr-instruct-1k"
+  dataset_repo: "sehinsahfanboy/stem-tr-instruct-1k"
   model_repo: "sehinsahfanboy/Turkish-Llama-8B-STEM-QLoRA"
   private: false

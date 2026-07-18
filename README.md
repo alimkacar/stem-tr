@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🧠 Eding STEM TR
+# 🧠 STEM TR
 
 ### Türkçe K–12 STEM/Kodlama için Instruction Veri Seti & QLoRA Fine-tuning
 
@@ -23,7 +23,7 @@
 
 ---
 
-> **Eding stajı · kendi başlattığım proje (2026).** Manuel seed yazımı → Self-Instruct genişletme → human-in-the-loop filtreleme → **QLoRA fine-tuning** → BLEU/ROUGE-L/BERTScore ile değerlendirme → HuggingFace Hub'da açık kaynak yayın.
+> **Kendi başlattığım kişisel proje (2026).** Manuel seed yazımı → Self-Instruct genişletme → human-in-the-loop filtreleme → **QLoRA fine-tuning** → BLEU/ROUGE-L/BERTScore ile değerlendirme → HuggingFace Hub'da açık kaynak yayın.
 
 <br>
 
@@ -68,7 +68,7 @@ BLEU/ROUGE'daki büyük farkın önemli kısmı, modelin veri setinin **kısa ve
 
 <br>
 
-## 🗂️ Veri seti — `eding-stem-tr-instruct-1k`
+## 🗂️ Veri seti — `stem-tr-instruct-1k`
 
 <table>
 <tr><td>
@@ -150,7 +150,7 @@ python scripts/param_report.py --config configs/config.yaml
 
 ## 🚀 Kullanım
 
-**En kolay — Colab (T4/L4/A100):** `notebooks/eding_stem_tr_colab.ipynb`'yi aç, GPU seç, hücreleri sırayla çalıştır. Kod GPU'yu algılayıp ayarları otomatik seçer.
+**En kolay — Colab (T4/L4/A100):** `notebooks/stem_tr_colab.ipynb`'yi aç, GPU seç, hücreleri sırayla çalıştır. Kod GPU'yu algılayıp ayarları otomatik seçer.
 
 **Ya da yerelde / script:**
 
@@ -169,12 +169,12 @@ python src/publish_hub.py --config configs/config.yaml --hf-token $HF_TOKEN
 ## 📁 Proje yapısı
 
 ```
-eding-stem-tr/
+stem-tr/
 ├── configs/config.yaml           # Tüm pipeline parametreleri
 ├── data/
 │   ├── seeds/seed_examples.jsonl          # 139 el-yazımı seed
 │   ├── generated_raw.jsonl / rejected.jsonl   # ham üretim + elenenler (%35)
-│   ├── eding-stem-tr-instruct-1k.jsonl    # NİHAİ 1.000 örnek
+│   ├── stem-tr-instruct-1k.jsonl    # NİHAİ 1.000 örnek
 │   └── splits/{train,validation,test}.jsonl
 ├── src/
 │   ├── build_dataset.py          # yeniden üretilebilir veri derleyici
@@ -182,7 +182,7 @@ eding-stem-tr/
 │   ├── qlora_finetune.py         # QLoRA (transformers.Trainer, TRL'siz)
 │   ├── evaluate.py · publish_hub.py
 ├── scripts/param_report.py       # parametre azaltma raporu
-├── notebooks/eding_stem_tr_colab.ipynb   # tek dosya, self-contained
+├── notebooks/stem_tr_colab.ipynb   # tek dosya, self-contained
 ├── outputs/evaluation/results.json       # değerlendirme sonuçları
 ├── DATASET_CARD.md · MODEL_CARD.md · NEXT_STEPS.md
 └── requirements.txt
@@ -205,7 +205,7 @@ Yöntemler: *QLoRA* (Dettmers vd. 2023), *LoRA* (Hu vd. 2021), *Self-Instruct* (
 
 <div align="center">
 
-**Alim Kacar** · Eding Stajı 2026
-🤗 [Dataset](https://huggingface.co/datasets/sehinsahfanboy/eding-stem-tr-instruct-1k) · [Model](https://huggingface.co/sehinsahfanboy/Turkish-Llama-8B-STEM-QLoRA)
+**Alim Kacar** · 2026
+🤗 [Dataset](https://huggingface.co/datasets/sehinsahfanboy/stem-tr-instruct-1k) · [Model](https://huggingface.co/sehinsahfanboy/Turkish-Llama-8B-STEM-QLoRA)
 
 </div>
