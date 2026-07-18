@@ -1,0 +1,50 @@
+# ============================================================
+# Eding STEM TR - Bağımlılıklar
+# Colab Pro (T4/A100) için optimize edilmiştir
+# ============================================================
+
+# Core ML
+# NOT: Colab'da torch/transformers ÖNYÜKLÜ gelir; SABİTLEMEYİN. Eski sürümleri
+# yeni CUDA/torch üzerine zorlamak 'triton.ops' / 'has_avx512bf16' /
+# 'libnvJitLink.so' gibi uyumsuzluk hatalarına yol açar. Aşağıdaki alt sınırlar
+# yalnızca yerel kurulum içindir; Colab'da mevcut sürümleri kullanın.
+# Eğitim kodu TRL KULLANMAZ (transformers.Trainer) — sürüm dayanıklıdır.
+torch>=2.1.0
+transformers>=4.44.0
+datasets>=2.19.0
+accelerate>=0.30.0
+peft>=0.11.0
+# bitsandbytes GPU'nun CUDA sürümüne göre GÜNCEL kurulmalı:  pip install -U bitsandbytes
+bitsandbytes>=0.46.0
+
+# Veri İşleme
+pandas>=2.0.0
+numpy>=1.24.0
+pyyaml>=6.0
+jsonlines>=4.0.0
+
+# Self-Instruct Pipeline (Gemini - ücretsiz)
+google-generativeai>=0.7.0
+
+# Metin İşleme & Benzerlik
+rouge-score>=0.1.2
+nltk>=3.8.0
+rapidfuzz>=3.6.0
+
+# Değerlendirme
+evaluate>=0.4.0
+bert-score>=0.3.13
+sacrebleu>=2.4.0
+
+# HuggingFace Hub
+huggingface-hub>=0.23.0
+
+# Görselleştirme
+matplotlib>=3.7.0
+seaborn>=0.12.0
+plotly>=5.15.0
+
+# Notebook & Utilities
+tqdm>=4.65.0
+rich>=13.0.0
+python-dotenv>=1.0.0

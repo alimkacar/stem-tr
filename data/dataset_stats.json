@@ -1,0 +1,67 @@
+{
+  "dataset": "eding-stem-tr-instruct-1k",
+  "total": 1000,
+  "seed_count": 139,
+  "generated_count": 861,
+  "raw_generated": 1325,
+  "rejected": 464,
+  "rejection_rate": 0.35,
+  "by_category": {
+    "arduino": 155,
+    "scratch": 139,
+    "mblock": 136,
+    "robotik": 136,
+    "python_stem": 145,
+    "elektronik": 148,
+    "algoritma": 141
+  },
+  "by_difficulty": {
+    "ortaokul": 420,
+    "ilkokul": 293,
+    "lise": 287
+  },
+  "splits": {
+    "train": 850,
+    "validation": 50,
+    "test": 100
+  },
+  "split_by_category": {
+    "train": {
+      "mblock": 115,
+      "arduino": 131,
+      "algoritma": 121,
+      "robotik": 115,
+      "python_stem": 124,
+      "scratch": 118,
+      "elektronik": 126
+    },
+    "validation": {
+      "arduino": 8,
+      "scratch": 7,
+      "mblock": 7,
+      "robotik": 7,
+      "python_stem": 7,
+      "elektronik": 7,
+      "algoritma": 7
+    },
+    "test": {
+      "arduino": 16,
+      "scratch": 14,
+      "mblock": 14,
+      "robotik": 14,
+      "python_stem": 14,
+      "elektronik": 15,
+      "algoritma": 13
+    }
+  },
+  "reject_reasons": {
+    "cok_kisa": 78,
+    "tekrar": 78,
+    "konu_disi": 77,
+    "bicim_hatasi": 77,
+    "dil_kalitesi": 77,
+    "yanlis_bilgi": 77
+  },
+  "avg_instruction_chars": 71.8,
+  "avg_output_chars": 247.6
+}

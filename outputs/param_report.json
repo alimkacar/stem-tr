@@ -1,0 +1,27 @@
+{
+  "base_model": "ytu-ce-cosmos/Turkish-Llama-8b-Instruct-v0.1",
+  "lora_rank": 16,
+  "target_modules": [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj",
+    "gate_proj",
+    "up_proj",
+    "down_proj"
+  ],
+  "num_layers": 32,
+  "lora_params_per_module_per_layer": {
+    "q_proj": 131072,
+    "k_proj": 81920,
+    "v_proj": 81920,
+    "o_proj": 131072,
+    "gate_proj": 294912,
+    "up_proj": 294912,
+    "down_proj": 294912
+  },
+  "trainable_params": 41943040,
+  "total_params": 8030261248,
+  "trainable_pct": 0.5223,
+  "reduction_pct": 99.4777
+}

@@ -1,0 +1,112 @@
+# ============================================================
+# Eding STEM TR - Proje Konfigürasyonu
+# ============================================================
+
+project:
+  name: "eding-stem-tr-instruct-1k"
+  version: "1.0.0"
+  author: "Alim Kacar"
+  description: "Türkçe K-12 STEM/Kodlama Instruction-Tuning Veri Seti & QLoRA Fine-tuning"
+
+# ---------- Veri Seti ----------
+data:
+  seed_count: 139
+  target_total: 1000
+  llm_expansion_count: 861       # Self-Instruct ile üretilecek
+  rejection_rate: 0.35            # Human-in-the-loop red oranı hedefi
+  test_split: 0.10
+  val_split: 0.05
+  categories:
+    - "arduino"
+    - "mblock"
+    - "scratch"
+    - "robotik"
+    - "python_stem"
+    - "elektronik"
+    - "algoritma"
+  difficulty_levels:
+    - "ilkokul"      # 1-4. sınıf
+    - "ortaokul"     # 5-8. sınıf
+    - "lise"         # 9-12. sınıf
+
+# ---------- Self-Instruct Pipeline ----------
+self_instruct:
+  model: "gemini-2.0-flash"           # Ücretsiz Google Gemini modeli
+  temperature: 0.8
+  max_tokens: 1024
+  batch_size: 5                        # Her batch'te üretilecek örnek sayısı
+  num_seeds_per_prompt: 3              # Her prompt'a verilecek seed sayısı
+  similarity_threshold: 0.85           # ROUGE-L benzerlik eşiği (deduplicate)
+  max_retries: 3
+
+# ---------- QLoRA Fine-tuning ----------
+training:
+  base_model: "ytu-ce-cosmos/Turkish-Llama-8b-Instruct-v0.1"
+  output_dir: "./outputs/qlora-checkpoints"
+
+  # LoRA Hiperparametreleri
+  # En iyi kalite için LoRA tüm linear katmanlara uygulanır (QLoRA makalesi önerisi).
+  # ~41.9M eğitilebilir parametre → %99.48 azaltma.
+  lora:
+    r: 16
+    lora_alpha: 32
+    lora_dropout: 0.05
+    target_modules:
+      - "q_proj"
+      - "k_proj"
+      - "v_proj"
+      - "o_proj"
+      - "gate_proj"
+      - "up_proj"
+      - "down_proj"
+    bias: "none"
+    task_type: "CAUSAL_LM"
+
+  # Quantization
+  quantization:
+    load_in_4bit: true
+    bnb_4bit_quant_type: "nf4"
+    bnb_4bit_compute_dtype: "bfloat16"
+    bnb_4bit_use_double_quant: true
+
+  # Training Arguments  (T4 16GB için güvenli: batch 1 x birikim 16 = efektif 16)
+  args:
+    num_train_epochs: 3
+    per_device_train_batch_size: 1
+    gradient_accumulation_steps: 16
+    learning_rate: 2.0e-4
+    weight_decay: 0.01
+    warmup_ratio: 0.03
+    lr_scheduler_type: "cosine"
+    max_seq_length: 512
+    logging_steps: 10
+    save_steps: 50
+    eval_steps: 50
+    fp16: false          # NOT: kod donanıma göre otomatik seçer
+    bf16: true           # T4/Turing -> fp16, A100/Ampere+ -> bf16 (qlora_finetune._bf16_ok)
+    gradient_checkpointing: true
+    optim: "paged_adamw_32bit"
+    neftune_noise_alpha: 5      # NEFTune: talimat-tuning kalitesini artırır (0 -> kapalı)
+    seed: 42
+
+# ---------- Değerlendirme ----------
+evaluation:
+  metrics:
+    - "bleu"
+    - "rouge_l"
+    - "bertscore"
+  bertscore_model: "dbmdz/bert-base-turkish-cased"
+  llm_judge:
+    model: "gemini-2.0-flash"
+    criteria:
+      - "faithfulness"       # Doğruluk
+      - "relevance"          # İlgililik
+      - "completeness"       # Tamlık
+      - "turkish_quality"    # Türkçe dil kalitesi
+    scale: [1, 5]
+
+# ---------- HuggingFace Hub ----------
+hub:
+  dataset_repo: "sehinsahfanboy/eding-stem-tr-instruct-1k"
+  model_repo: "sehinsahfanboy/Turkish-Llama-8B-STEM-QLoRA"
+  private: false

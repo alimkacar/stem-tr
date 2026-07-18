@@ -1,0 +1,32 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# --- İşletim sistemi ---
+.DS_Store
+Thumbs.db
+
+# --- Ortam ---
+.env
+.venv/
+venv/
+
+# --- Eğitim çıktıları (büyük / yeniden üretilebilir) ---
+outputs/qlora-checkpoints/
+outputs/**/*.png
+*.safetensors
+*.bin
+*.pt
+*.ckpt
+
+# Ama değerlendirme/rapor sonuçlarını TUT (küçük, kanıt niteliğinde)
+!outputs/evaluation/
+!outputs/evaluation/results.json
+!outputs/param_report.json
+
+# --- Geçici ---
+_backup_*/
+_proj/
+*.log
